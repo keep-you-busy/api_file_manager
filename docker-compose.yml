@@ -1,10 +1,5 @@
 version: '3.7'
 
-volumes:
-  pg_data:
-  static:
-  media:
-
 services:
   web:
     build: ./api_file_manager
@@ -12,7 +7,7 @@ services:
     volumes:
       - ./api_file_manager:/usr/src/app/
     ports:
-      - 1337:8000
+      - 8000:8000
     env_file: .env
     depends_on:
       - redis
