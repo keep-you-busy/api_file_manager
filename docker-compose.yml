@@ -1,0 +1,33 @@
+version: '3.7'
+
+volumes:
+  pg_data:
+  static:
+  media:
+
+services:
+  web:
+    build: ./api_file_manager
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./api_file_manager:/usr/src/app/
+    ports:
+      - 1337:8000
+    env_file: .env
+    depends_on:
+      - redis
+
+
+  celery:
+    build: ./api_file_manager
+    command:  celery -A api_file_manager worker --loglevel=info --logfile=logs/celery.loglevel=info --logfile=logs/celery.log 
+    volumes:
+      - ./api_file_manager:/usr/src/app
+    env_file: .env
+    depends_on:
+      - web
+      - redis
+
+
+  redis:
+    image: redis:5-alpine
