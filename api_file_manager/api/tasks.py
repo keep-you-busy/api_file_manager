@@ -1,10 +1,11 @@
+from api.models import File
+
 from celery import shared_task
 from celery.utils.log import get_task_logger
 
-from api.models import File
 
-
-logger = get_task_logger(__name__)
+if get_task_logger(__name__):
+    logger = get_task_logger(__name__)
 
 
 @shared_task
