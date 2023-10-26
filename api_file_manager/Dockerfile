@@ -2,7 +2,7 @@ FROM python:3.11.1-alpine
 
 WORKDIR /usr/src/app
 
-COPY ./requirements.txt /usr/src/app/requirements.txt
+COPY ./api_file_manager/requirements.txt /usr/src/app/requirements.txt
 
 RUN pip install -r requirements.txt --no-cache-dir
 
