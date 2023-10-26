@@ -145,5 +145,11 @@ dmypy.json
 
 .mypy_cache
 
-# папки со статикой и медиа
-media/
+# Папки с медиа
+uploads/
+
+# Папки с логами
+logs/
+
+# Ignore redis binary dump (dump.rdb) files
+*.rdb
