@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cd /usr/src/app/api_file_manager
 python manage.py makemigrations
 python manage.py migrate
 
