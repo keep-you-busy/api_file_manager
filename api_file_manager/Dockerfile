@@ -7,3 +7,9 @@ COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
 
 COPY . /usr/src/app/
+
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
+
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+CMD ["./entrypoint.sh"]
